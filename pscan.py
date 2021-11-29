@@ -1,15 +1,22 @@
 import socket
 
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.settimeout(0.05)
-
 ip = input('Digite o host ou ip a ser verificado: ')
-port = int(input('Digite a porta a ser verificada: '))
 
-code = client.connect_ex((ip, port))
+ports = []
+count = 0
 
+while count < 3:
+    ports.append(int(input('Digite a porta a ser verificada: ')))
+    count += 1
 
-if code == 0:
-    print('Porta aberta.')
-else:
-    print('Porta fechada')
+for port in ports:
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client.settimeout(0.05)
+    code = client.connect_ex((ip, port))
+
+    if code == 0:
+        print(str(port), ' -> Porta aberta.')
+    else:
+        print(str(port), ' -> Porta fechada')
+
+print('\nScan Finalizado')
