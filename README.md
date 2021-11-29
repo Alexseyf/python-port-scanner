@@ -1,2 +1,2 @@
 # python-port-scanner
-Por Scanner em Python
+Port Scanner em Python
