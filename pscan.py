@@ -5,7 +5,7 @@ ip = input('Digite o host ou ip a ser verificado: ')
 ports = []
 count = 0
 
-while count < 3:
+while count < 2:
     ports.append(int(input('Digite a porta a ser verificada: ')))
     count += 1
 
